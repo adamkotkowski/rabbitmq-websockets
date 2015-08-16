@@ -35,23 +35,23 @@ public class RabbitConfiguration {
         return BindingBuilder.bind(queue).to(exchange).with(queueName);
     }
 
-    @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
-        container.setMessageListener(listenerAdapter);
-        return container;
-    }
+//    @Bean
+//    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
+//        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
+//        container.setConnectionFactory(connectionFactory);
+//        container.setQueueNames(queueName);
+//        container.setMessageListener(listenerAdapter);
+//        return container;
+//    }
 
-    @Bean
-    MqReceiver mqReceiver() {
-        return new MqReceiver();
-    }
+//    @Bean
+//    MqReceiver mqReceiver() {
+//        return new MqReceiver();
+//    }
 
-    @Bean
-    MessageListenerAdapter listenerAdapter(MqReceiver mqReceiver) {
-        return new MessageListenerAdapter(mqReceiver, "receiveMessage");
-    }
+//    @Bean
+//    MessageListenerAdapter listenerAdapter(MqReceiver mqReceiver) {
+//        return new MessageListenerAdapter(mqReceiver, "receiveMessage");
+//    }
 
 }
